@@ -36,7 +36,7 @@ func main() {
 				fmt.Fprintln(os.Stderr, "A cuboid has exactly 3 sides, not", index+1)
 				os.Exit(1)
 			}
-      slices.Sort(sides)
+			slices.Sort(sides)
 			index = 0
 			area += (3*sides[0]*sides[1] + 2*sides[2]*(sides[0]+sides[1]))
 			sides[0], sides[1], sides[2] = 0, 0, 0
