@@ -6,7 +6,7 @@ function queue
   fish -c "$argv"
 end
 
-for file in 20*/*/*.{c,cpp}
+for file in 20*/*/*.{c,cpp,h,hpp}
   queue clang-format -i $file
 end
 for file in 20*/*/*.js
