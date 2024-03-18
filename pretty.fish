@@ -18,3 +18,6 @@ end
 for file in 20*/*/*.py
   queue black $file
 end
+for file in 20*/*/*.bash
+  queue shfmt -s -w $file
+end
