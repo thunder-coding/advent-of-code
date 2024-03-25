@@ -1,6 +1,6 @@
 #include "input_parser.hpp"
 
-static inline bool parse_coordinates(std::ifstream& input, int& x, int& y) {
+static inline bool parse_coordinates(std::ifstream &input, int &x, int &y) {
   int ch;
   int *curr = &x;
   x = y = 0;
@@ -29,7 +29,7 @@ static inline bool parse_coordinates(std::ifstream& input, int& x, int& y) {
       break;
     case ' ':
     case '\n':
-      input.unget();;
+      input.unget();
       return true;
     case EOF:
       if (curr == &y) {
@@ -42,7 +42,7 @@ static inline bool parse_coordinates(std::ifstream& input, int& x, int& y) {
   }
 }
 
-void Parse_instruction(std::ifstream& input, Instruction& instruction) {
+void Parse_instruction(std::ifstream &input, Instruction &instruction) {
   std::streampos mar;
   /*!re2c
     re2c:api = custom;

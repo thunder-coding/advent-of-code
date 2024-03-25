@@ -3,9 +3,9 @@ package input_parser
 func ParseInstruction(data *[]byte, size int64, cur *int64) (Instruction, error) {
 	var instruction Instruction
 	var mar int64
-  if *cur >= size {
-    return instruction, EEof
-  }
+	if *cur >= size {
+		return instruction, EEof
+	}
 	/*!re2c
 	  re2c:define:YYCTYPE = byte;
 	  re2c:define:YYPEEK = "(*data)[*cur]";
@@ -44,12 +44,12 @@ after_instruction:
 		return instruction, EInvalidSyntax
 	}
 	*cur += 1
-  var err error
-  instruction.Beg, err = parseCoordinate(data, size, cur)
-  if err != nil {
-    return instruction, err
-  }
-  // Eat the whitespace
+	var err error
+	instruction.Beg, err = parseCoordinate(data, size, cur)
+	if err != nil {
+		return instruction, err
+	}
+	// Eat the whitespace
 	if *cur == size {
 		return instruction, EUnexpectedEof
 	}
@@ -77,7 +77,7 @@ after_instruction:
 	  "through" { goto before_end; }
 	*/
 before_end:
-  // Eat the whitespace
+	// Eat the whitespace
 	if *cur == size {
 		return instruction, EUnexpectedEof
 	}
@@ -85,15 +85,15 @@ before_end:
 		return instruction, EInvalidSyntax
 	}
 	*cur += 1
-  instruction.End, err = parseCoordinate(data, size, cur)
-  if err != nil {
-    return instruction, err
-  }
-  // Eat the newline
-  if *cur != size && (*data)[*cur] != '\n' {
-    return instruction, EUnexpectedCharacter
-  }
-  *cur += 1
+	instruction.End, err = parseCoordinate(data, size, cur)
+	if err != nil {
+		return instruction, err
+	}
+	// Eat the newline
+	if *cur != size && (*data)[*cur] != '\n' {
+		return instruction, EUnexpectedCharacter
+	}
+	*cur += 1
 	return instruction, nil
 }
 
