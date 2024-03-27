@@ -1,23 +1,19 @@
 #!/usr/bin/fish
-function queue
-  if not test (count (jobs)) -lt (nproc)
-    wait
-  end
-  fish -c "$argv" &
-end
-
+rm tasks.sh
 for file in 20*/**/*.{{c,cpp}{,.re},h,hpp}
-  queue clang-format -i $file
+  echo clang-format -i "$file" >> tasks.sh
 end
 for file in 20*/**/*.js
-  queue prettier -w $file
+  echo prettier -w "$file" >> tasks.sh
 end
 for file in 20*/**/*.go{,.re}
-  queue gofmt -w $file
+  echo gofmt -w "$file" >> tasks.sh
 end
 for file in 20*/**/*.py
-  queue black $file
+  echo black "$file" >> tasks.sh
 end
 for file in 20*/**/*.bash
-  queue shfmt -s -w $file
+  echo shfmt -s -w "$file" >> tasks.sh
 end
+
+parallel < tasks.sh
