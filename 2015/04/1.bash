@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+set -e
 # This may take around hanf an hour to run even on moderm hardware
 secret="$(cat ./2015/04/input.txt)"
 answer=1
