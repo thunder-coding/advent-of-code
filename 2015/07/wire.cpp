@@ -21,10 +21,13 @@ bool getWires(Wires &wires, std::ifstream &input) {
                 << std::endl;
       return EXIT_FAILURE;
     }
-    const Wire newWire = {.status = WireStatus::NotCalculated,
-                          .gate = instruction.second.gate,
-                          .a = instruction.second.a,
-                          .b = instruction.second.b};
+    const Wire newWire = {
+        .status = WireStatus::NotCalculated,
+        .calculatedValue =
+            0, // Silence Clang 18 error (-Wmissing-field-initializers)
+        .gate = instruction.second.gate,
+        .a = instruction.second.a,
+        .b = instruction.second.b};
     wires[instruction.second.c.wire] = newWire;
   }
 }
