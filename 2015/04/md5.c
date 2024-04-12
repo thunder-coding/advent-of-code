@@ -53,17 +53,17 @@ void *MD5_new(const void *data, const uint64_t size) {
   void *M = malloc(padded_size);
   memcpy(M, data, size);
   // Perform the actual padding.
-  void *m = M + size;
+  void *m = (char *)M + size;
   // The first bit is always supposed to be 1 and rest are to be filled with
   // zeroes
   *(uint8_t *)m = 0x80;
-  m += sizeof(uint8_t);
+  m = (char *)m + sizeof(uint8_t);
   // We already written our first byte by the time we are reaching here.
   for (padding_size--; padding_size != 0; padding_size--) {
     // Actually pad it
     *(uint8_t *)m = 0x00;
     // Advance the pointer
-    m += sizeof(uint8_t);
+    m = (char *)m + sizeof(uint8_t);
   }
   // Now append the original message size.
   // Bits are appended as 2 32-bit words, with low order word first
@@ -74,10 +74,10 @@ void *MD5_new(const void *data, const uint64_t size) {
   // the md5sum is a 128-bit output, or 16 bytes
   void *md5sum = malloc(16);
   // Break into 4 32-bit words as mentioned in the spec
-  uint32_t *A = md5sum + sizeof(uint32_t) * 0;
-  uint32_t *B = md5sum + sizeof(uint32_t) * 1;
-  uint32_t *C = md5sum + sizeof(uint32_t) * 2;
-  uint32_t *D = md5sum + sizeof(uint32_t) * 3;
+  uint32_t *A = (uint32_t *)md5sum + sizeof(uint32_t) * 0;
+  uint32_t *B = (uint32_t *)md5sum + sizeof(uint32_t) * 1;
+  uint32_t *C = (uint32_t *)md5sum + sizeof(uint32_t) * 2;
+  uint32_t *D = (uint32_t *)md5sum + sizeof(uint32_t) * 3;
 
   // Initialize the word buffers
   // RFC specifies the hexadecimal in an antique fashion by mentioning the
@@ -164,7 +164,7 @@ void *MD5_new(const void *data, const uint64_t size) {
     *B += BB;
     *C += CC;
     *D += DD;
-    X += 64;
+    X = (char *)X + 64;
   }
   free(M);
   return md5sum;

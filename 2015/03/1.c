@@ -15,7 +15,7 @@ struct Houses {
   size_t size;
 };
 
-struct Houses Houses_new() {
+struct Houses Houses_new(void) {
   struct Houses houses;
   houses.houses = NULL;
   houses.size = 0;
@@ -75,7 +75,7 @@ void Houses_insert_if_not_exist(struct Houses *houses, struct House house) {
   }
 }
 
-int main() {
+int main(void) {
   FILE *input = fopen("./2015/03/input.txt", "r");
   if (!input) {
     fprintf(stderr, "Unable to open input file\n");

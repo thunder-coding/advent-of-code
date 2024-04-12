@@ -13,4 +13,4 @@ for (let character of contents) {
   }
 }
 
-console.log(`Santa will end up at floor ${floor}`);
+console.log(floor);

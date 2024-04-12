@@ -68,7 +68,7 @@ uint32_t Lightgrid_brightness(struct Lightgrid *lightgrid) {
   }
   return brightness;
 }
-int main() {
+int main(void) {
   FILE *input = fopen("./2015/06/input.txt", "r");
   if (!input) {
     fprintf(stderr, "Unable to open input file\n");

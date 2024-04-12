@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 
-int main() {
+int main(void) {
   FILE *input = fopen("./2015/07/input.txt", "r");
   if (!input) {
     fprintf(stderr, "Unable to open input file\n");

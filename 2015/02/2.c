@@ -61,7 +61,7 @@ end:
   return smallest_perimeter + sides[0] * sides[1] * sides[2];
 }
 
-int main() {
+int main(void) {
   FILE *input = fopen("./2015/02/input.txt", "r");
   if (!input) {
     fprintf(stderr, "Unable to open input file\n");
@@ -75,6 +75,6 @@ int main() {
       return EXIT_FAILURE;
     ribbon_length += l;
   }
-  printf("Length of ribbon required is %d feet", ribbon_length);
+  printf("%d", ribbon_length);
   return EXIT_SUCCESS;
 }

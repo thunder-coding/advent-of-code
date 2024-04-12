@@ -34,6 +34,7 @@ int getArea(std::ifstream &input) {
       }
       break;
     case '\n':
+    case EOF:
       if (index != 2) {
         std::cerr << "A cuboid has exactly 3 sides not " << index + 1
                   << std::endl;
@@ -60,9 +61,11 @@ int main() {
   }
   int area = 0;
   int a;
-  while ((a = getArea(input)) != 0)
+  while ((a = getArea(input)) > 0)
     area += a;
 
-  std::cout << area << " sq. feet of wrapping paper required";
+  if (a == -1)
+    return EXIT_FAILURE;
+  std::cout << area;
   return EXIT_SUCCESS;
 }

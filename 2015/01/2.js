@@ -14,7 +14,7 @@ for (let character of contents) {
     console.warn(`Invalid character '${character}' in input file`);
   }
   if (floor == -1) {
-    console.log(`Santa will first reach basement on character ${count}`);
+    console.log(count);
     process.exit(0);
   }
 }

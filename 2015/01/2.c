@@ -3,7 +3,7 @@
 
 #define basement_floor -1
 
-int main() {
+int main(void) {
   FILE *input = fopen("./2015/01/input.txt", "r");
   if (!input) {
     fprintf(stderr, "Unable to open input file\n");
@@ -26,7 +26,7 @@ int main() {
       break;
     }
     if (floor == basement_floor) {
-      printf("Santa reached the basement first on %d th iteration", iteration);
+      printf("%d", iteration);
       return EXIT_SUCCESS;
     }
   }

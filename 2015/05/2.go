@@ -30,7 +30,6 @@ func main() {
 				condition2 = true
 			}
 			if condition1 && condition2 {
-				fmt.Println(line)
 				niceCount++
 				break
 			}

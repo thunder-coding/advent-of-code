@@ -17,7 +17,7 @@ for char in input.read():
     else:
         print("Warning unknown character: '", char, "'", sep="")
     if floor == basement:
-        print("Santa will reach basement on character", count)
+        print(count)
         exit(0)
 
 print("Santa will never reach basement")

@@ -44,5 +44,5 @@ func main() {
 		}
 		houses[santa]++
 	}
-	fmt.Println("Number of houses with atleast 1 gift is", len(houses))
+	fmt.Println(len(houses))
 }

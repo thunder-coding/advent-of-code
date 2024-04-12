@@ -38,6 +38,4 @@ for (let character of contents) {
   housesWithGifts.add(santaPos.toString());
 }
 
-console.log(
-  `${housesWithGifts.size} houses recieved atleast 1 gift from Santa`,
-);
+console.log(housesWithGifts.size);

@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 set -e
-read -r INPUT <./2015/01/input.txt
+read -r INPUT <./2015/01/input.txt || [ -n "${INPUT}" ]
 floor=0
 for index in $(seq 0 $((${#INPUT} - 1))); do
   char=${INPUT:index:1}
@@ -11,4 +11,4 @@ for index in $(seq 0 $((${#INPUT} - 1))); do
   fi
 done
 
-echo "Santa will end up on floor ${floor}"
+echo "${floor}"

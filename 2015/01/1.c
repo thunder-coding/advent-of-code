@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
+int main(void) {
   FILE *input = fopen("./2015/01/input.txt", "r");
   if (!input) {
     fprintf(stderr, "Unable to open input file\n");
@@ -23,6 +23,6 @@ int main() {
     }
   }
   fclose(input);
-  printf("Santa should be at floor %d\n", floor);
+  printf("%d\n", floor);
   return EXIT_SUCCESS;
 }

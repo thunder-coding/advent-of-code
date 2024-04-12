@@ -26,6 +26,6 @@ int main() {
       break;
     }
   }
-  std::cout << "Santa will have to go to floor " << floor << std::endl;
+  std::cout << floor << std::endl;
   return EXIT_SUCCESS;
 }

@@ -33,5 +33,5 @@ func main() {
 		}
 	}
 
-	fmt.Println("Santa will end up on floor ", floor)
+	fmt.Println(floor)
 }

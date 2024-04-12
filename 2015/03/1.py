@@ -35,8 +35,4 @@ for char in input.read():
         exit(1)
     housesWithGifts.add(str(santaPos))
 
-print(
-    "Number of houses that recieve atleast one gift from santa is {}".format(
-        len(housesWithGifts)
-    )
-)
+print(len(housesWithGifts))

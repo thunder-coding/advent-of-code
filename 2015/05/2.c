@@ -132,7 +132,7 @@ enum String parse(FILE *file) {
   return Naughty;
 }
 
-int main() {
+int main(void) {
   FILE *input = fopen("./2015/05/input.txt", "r");
   if (!input) {
     fprintf(stderr, "Unable to open input file\n");

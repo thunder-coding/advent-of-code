@@ -29,7 +29,7 @@ int main() {
       break;
     }
     if (floor == basement) {
-      std::cout << "Santa will reach basement on " << count << " th character";
+      std::cout << count;
       return EXIT_SUCCESS;
     }
   }

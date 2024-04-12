@@ -36,7 +36,7 @@ func main() {
 			fmt.Fprintln(os.Stderr, "Warning unexpected character '", string(b), "in input.txt")
 		}
 		if floor == basement {
-			fmt.Println("Santa will first reach basement on character ", count)
+			fmt.Println(count)
 			break
 		}
 	}

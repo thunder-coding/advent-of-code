@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 
-int main() {
+int main(void) {
   FILE *input = fopen("./2015/07/input.txt", "r");
   if (!input) {
     fprintf(stderr, "Unable to open input file\n");
@@ -52,7 +52,7 @@ after_parsing_instructions:
     return EXIT_FAILURE;
   }
 
-  for (int i = 0; i != wireMesh.size; i++) {
+  for (size_t i = 0; i != wireMesh.size; i++) {
     wireMesh.wires[i].status = NotCalculated;
   }
 

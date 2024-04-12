@@ -34,6 +34,7 @@ int getRibbonLength(std::ifstream &input) {
       }
       break;
     case '\n':
+    case EOF:
       if (index != 2) {
         std::cerr << "A cuboid has exactly 3 sides not " << index + 1
                   << std::endl;
@@ -66,6 +67,6 @@ int main() {
     area += a;
   }
 
-  std::cout << area << " feet of ribbon required";
+  std::cout << area;
   return EXIT_SUCCESS;
 }

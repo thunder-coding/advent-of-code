@@ -15,4 +15,4 @@ for char in input.read():
     else:
         print("Warning unknown character: '", char, "'", sep="")
 
-print("Santa will end up at floor", floor)
+print(floor)

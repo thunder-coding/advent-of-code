@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-int main() {
+int main(void) {
   FILE *output_file = fopen("./2015/04/md5_precompute.h", "w");
   fprintf(output_file, "#include <stdint.h>\n\n");
   fprintf(output_file, "const static uint32_t T[64] = {\n");

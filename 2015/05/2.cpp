@@ -37,7 +37,6 @@ int main() {
       if (!pairs.contains(tup))
         pairs[tup] = index;
     }
-  naughtly:
     continue;
   nice:
     niceCount++;

@@ -57,7 +57,7 @@ end:
   return (2 * (faces[0] + faces[1] + faces[2])) + smallest_face;
 }
 
-int main() {
+int main(void) {
   FILE *input = fopen("./2015/02/input.txt", "r");
   if (!input) {
     fprintf(stderr, "Unable to open input file\n");
@@ -73,6 +73,6 @@ int main() {
   }
 
   fclose(input);
-  printf("Total area of wrapping paper will be %d square feet", total_area);
+  printf("%d", total_area);
   return EXIT_SUCCESS;
 }

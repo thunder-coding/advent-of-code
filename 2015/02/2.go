@@ -23,15 +23,12 @@ func main() {
 	for true {
 		b := make([]byte, 1)
 		_, err := input.Read(b)
-		if err == io.EOF {
-			break
-		}
 		char := int(b[0])
 		switch {
 		case char >= '0' && char <= '9':
 			sides[index] *= 10
 			sides[index] += (char - '0')
-		case char == '\n':
+		case char == '\n' || err == io.EOF:
 			if index != 2 {
 				fmt.Fprintln(os.Stderr, "A cuboid has exactly 3 sides, not", index+1)
 				os.Exit(1)
@@ -50,6 +47,9 @@ func main() {
 			fmt.Fprintln(os.Stderr, "Unknown character in input file:", char)
 			os.Exit(1)
 		}
+		if err == io.EOF {
+			break
+		}
 	}
-	fmt.Println("Area of wrapping paper required is", area, "sq. feet")
+	fmt.Println(area)
 }

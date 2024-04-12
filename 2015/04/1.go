@@ -23,7 +23,7 @@ func main() {
 	for answer := uint64(1); answer != math.MaxUint64; answer++ {
 		h := md5.Sum([]byte(secret + strconv.FormatUint(answer, 10)))
 		if h[0] == 0 && h[1] == 0 && h[2] < 0x10 {
-			println(answer)
+			fmt.Println(answer)
 			os.Exit(0)
 		}
 	}

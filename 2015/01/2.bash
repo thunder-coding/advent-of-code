@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 set -e
-read -r INPUT <./2015/01/input.txt
+read -r INPUT <./2015/01/input.txt || [ -n "${INPUT}" ]
 floor=0
 for index in $(seq 0 $((${#INPUT} - 1))); do
   char=${INPUT:index:1}
@@ -10,7 +10,7 @@ for index in $(seq 0 $((${#INPUT} - 1))); do
     floor=$((floor - 1))
   fi
   if [ "$floor" = -1 ]; then
-    echo "Santa will reach the basement on $((index + 1))th character"
+    echo $((index + 1))
     exit 0
   fi
 done
