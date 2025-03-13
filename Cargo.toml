@@ -1,0 +1,19 @@
+[package]
+name = "advent-of-code"
+version = "0.1.0"
+edition = "2024"
+features = [ "btree_cursors" ]
+
+[[bin]]
+name = "AOC"
+path = "src/main.rs"
+
+[[bin]]
+name = "AOCTests"
+path = "src/tests/main.rs"
+
+[dependencies]
+libc = "0.2.171"
+
+[build-dependencies]
+libc = "0.2.171"
