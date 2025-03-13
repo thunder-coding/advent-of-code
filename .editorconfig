@@ -2,3 +2,8 @@
 indent_style = space
 indent_size = 2
 insert_final_newline = false
+
+# We can't have nice things with Rust.
+# The rustfmt doesn't even support not having a a final newline as an option
+[*.rs]
+insert_final_newline = true
