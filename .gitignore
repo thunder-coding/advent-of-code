@@ -3,3 +3,4 @@
 /build
 /target
 /src/utils/get_problems.rs
+/scripts/headers.txt

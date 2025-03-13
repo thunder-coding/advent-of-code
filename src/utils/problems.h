@@ -6,6 +6,9 @@
 #include "../year2015/solutions.h"
 #include "solutions.h"
 
+// clang-format off
 const Problems gProblems = {
-    SOLUTION_INITIALISERLIST_FOR_DAY(2015, 01)};
+  SOLUTION_INITIALISERLIST_FOR_DAY(2015, 01)
+};
+// clang-format on
 #endif

@@ -8,6 +8,7 @@ use libc::{EXIT_FAILURE, EXIT_SUCCESS};
 use utils::get_problems::get_problems;
 
 mod year2015;
+
 fn main() {
   let args: Vec<String> = args().collect();
   if args.len() < 2 {
