@@ -55,7 +55,9 @@ auto Year${year}::Day${dayStr}::Part${part}(const std::string& input) -> std::st
 }
 
 fs.appendFileSync(`src/year${year}/mod.rs`, `\npub mod day${dayStr};`);
-fs.appendFileSync(`src/lib.rs`, `\npub mod year${year};`);
+if (!fs.readFileSync(`src/lib.rs`).toString().match(`mod year${year};`)) {
+  fs.appendFileSync(`src/lib.rs`, `\npub mod year${year};`);
+}
 
 if (!fs.existsSync(`src/year${year}/solutions.h`)) {
   fs.writeFileSync(
@@ -132,14 +134,18 @@ fs.writeFileSync(
 );
 
 let headers = {};
-fs.readFileSync(`scripts/headers.txt`).toString()
-.split("\n")
-.map(line => line.split(": ")).forEach(([key, value]) => {
-  headers[key] = value;
+fs.readFileSync(`scripts/headers.txt`)
+  .toString()
+  .split("\n")
+  .map((line) => line.split(": "))
+  .forEach(([key, value]) => {
+    headers[key] = value;
   });
 
 fetch(`https://adventofcode.com/${year}/day/${day}/input`, {
-  headers
-}).then(response => response.text()).then(data => {
-  fs.writeFileSync(`src/year${year}/day${dayStr}/input.txt`, data);
-});
+  headers,
+})
+  .then((response) => response.text())
+  .then((data) => {
+    fs.writeFileSync(`src/year${year}/day${dayStr}/input.txt`, data);
+  });
