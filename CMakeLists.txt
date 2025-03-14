@@ -8,6 +8,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_library(AOCSolutionLib SHARED
   src/year2015/day01/part1.cc
   src/year2015/day01/part2.cc
+  src/year2015/day02/part1.cc
+  src/year2015/day02/part2.cc
+  src/year2015/day02/parse.cc
 )
 
 add_executable(AOC

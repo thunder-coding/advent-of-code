@@ -9,6 +9,7 @@
 // clang-format off
 const Problems gProblems = {
   SOLUTION_INITIALISERLIST_FOR_DAY(2015, 01)
+  SOLUTION_INITIALISERLIST_FOR_DAY(2015, 02)
 };
 // clang-format on
 #endif

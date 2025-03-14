@@ -31,5 +31,6 @@ macro_rules! add_problems_for_year {
 pub fn get_problems_list() -> ProblemList {
   let mut problems_list = ProblemList::new();
   add_problems_for_day!(problems_list, 2015, 1);
+  add_problems_for_day!(problems_list, 2015, 2);
   return problems_list;
 }
