@@ -50,6 +50,10 @@ fs.writeFileSync(
   `#ifndef ADVENT_OF_CODE_YEAR${year}_DAY${dayStr}_PARSE_H
 #define ADVENT_OF_CODE_YEAR${year}_DAY${dayStr}_PARSE_H
 
+namespace Year${year}::Day${dayStr} {
+
+}
+
 #endif
 )`)
 
