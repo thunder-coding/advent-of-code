@@ -40,6 +40,19 @@ fs.writeFileSync(
   ``
 )
 
+fs.writeFileSync(
+  `${day_folder}/parse.cc`,
+  ''
+)
+
+fs.writeFileSync(
+  `${day_folder}/parse.h`,
+  `#ifndef ADVENT_OF_CODE_YEAR${year}_DAY${dayStr}_PARSE_H
+#define ADVENT_OF_CODE_YEAR${year}_DAY${dayStr}_PARSE_H
+
+#endif
+)`)
+
 for (let part of [1, 2]) {
   fs.writeFileSync(
     `${day_folder}/part${part}.cc`,
@@ -135,7 +148,13 @@ fs.writeFileSync(
     .toString()
     .replace(
       `)\n\nadd_executable(AOC\n`,
-      `  src/year${year}/day${dayStr}/part1.cc\n  src/year${year}/day${dayStr}/part2.cc\n)\n\nadd_executable(AOC\n`,
+      `  src/year${year}/day${dayStr}/part1.cc
+src/year${year}/day${dayStr}/part2.cc
+src/year${year}/day${dayStr}/parse.cc
+)
+
+add_executable(AOC
+`,
     ),
 );
 
