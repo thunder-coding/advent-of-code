@@ -54,7 +54,7 @@ using Problems = std::map<std::string, Problem>;
 
 #define SOLUTION_INITIALISERLIST_ELEMENT_FOR_DAY_PART(year, day, part) \
   {#year "/" #day "/" #part,                                           \
-   {.inputFilePath = "src/year" #year "/day" #day "/input.txt",               \
+   {.inputFilePath = "src/year" #year "/day" #day "/input.txt",        \
     .solution = Year##year::Day##day::Part##part,                      \
     .answerFilePath = "src/year" #year "/day" #day "/answer" #part ".txt"}},
 
