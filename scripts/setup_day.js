@@ -54,9 +54,9 @@ auto Year${year}::Day${dayStr}::Part${part}(const std::string& input) -> std::st
   );
 }
 
-fs.appendFileSync(`src/year${year}/mod.rs`, `\npub mod day${dayStr};`);
+fs.appendFileSync(`src/year${year}/mod.rs`, `pub mod day${dayStr};\n`);
 if (!fs.readFileSync(`src/lib.rs`).toString().match(`mod year${year};`)) {
-  fs.appendFileSync(`src/lib.rs`, `\npub mod year${year};`);
+  fs.appendFileSync(`src/lib.rs`, `pub mod year${year}\n;`);
 }
 
 if (!fs.existsSync(`src/year${year}/solutions.h`)) {
