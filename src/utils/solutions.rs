@@ -1,6 +1,6 @@
 use std::collections::BTreeMap as Map;
 
-pub type Solution = fn(String) -> String;
+pub type Solution = fn(String) -> Result<String, String>;
 
 #[derive(Debug)]
 pub struct Problem {

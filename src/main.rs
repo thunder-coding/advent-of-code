@@ -58,6 +58,12 @@ fn main() {
       let mut input = String::new();
       let _ = input_file.unwrap().read_to_string(&mut input);
       let received_answer = (next.1.solution)(input);
+      if received_answer.is_err() {
+        eprintln!("{}", received_answer.unwrap_err());
+        failure = true;
+        continue;
+      }
+      let received_answer = received_answer.unwrap();
       if write {
         let answer_file = File::options()
           .write(true)

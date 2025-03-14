@@ -48,7 +48,7 @@ auto Year${year}::Day${dayStr}::Part${part}(const std::string& input) -> std::st
 
   fs.writeFileSync(
     `${day_folder}/part${part}.rs`,
-    `pub fn part${part}(input: String) -> String {
+    `pub fn part${part}(input: String) -> Result<String, String> {
   return input;
 }`,
   );

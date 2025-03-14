@@ -13,23 +13,29 @@ macro_rules! error {
 }
 
 fn main() {
-  let mut failed = false;
+  let mut failure = false;
   let problems = get_problems();
   for problem in problems {
     let input_file = File::open(problem.1.input_file_path.to_string());
     if input_file.is_err() {
       error!(
-        failed,
+        failure,
         "Failed to open input file: {}", problem.1.input_file_path
       );
     }
     let mut input = String::new();
     let _ = input_file.unwrap().read_to_string(&mut input);
     let received_answer = (problem.1.solution)(input);
+    if received_answer.is_err() {
+      eprintln!("{}", received_answer.unwrap_err());
+      failure = true;
+      continue;
+    }
+    let received_answer = received_answer.unwrap();
     let answer_file = File::open(problem.1.answer_file_path.to_string());
     if answer_file.is_err() {
       error!(
-        failed,
+        failure,
         "Failed to open answer file: {}", problem.1.answer_file_path
       );
     }
@@ -37,7 +43,7 @@ fn main() {
     let _ = answer_file.unwrap().read_to_string(&mut answer);
     if received_answer != answer {
       error!(
-        failed,
+        failure,
         r#"Solution to {} does not match the answer
 Expected answer: {}
 Got:             {}"#,
@@ -48,7 +54,7 @@ Got:             {}"#,
     }
     println!("PASS: {}", problem.0);
   }
-  if failed {
+  if failure {
     exit(libc::EXIT_FAILURE);
   }
   exit(libc::EXIT_SUCCESS);
