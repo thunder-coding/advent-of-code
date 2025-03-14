@@ -52,7 +52,7 @@ fs.writeFileSync(
 
 namespace Year${year}::Day${dayStr} {
 
-}
+} // namespace Year${year}::Day${dayStr}
 
 #endif
 )`)
