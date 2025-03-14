@@ -30,9 +30,15 @@ fs.mkdirSync(day_folder, { recursive: true });
 
 fs.writeFileSync(
   `${day_folder}/mod.rs`,
-  `pub mod part1;
+  `pub mod parse;
+pub mod part1;
 pub mod part2;`,
 );
+
+fs.writeFileSync(
+  `${day_folder}/parse.rs`,
+  ``
+)
 
 for (let part of [1, 2]) {
   fs.writeFileSync(
@@ -42,7 +48,7 @@ for (let part of [1, 2]) {
 #include "../solutions.h"
 
 auto Year${year}::Day${dayStr}::Part${part}(const std::string& input) -> std::string {
-  return input;
+  return Ok(input);
 }`,
   );
 
