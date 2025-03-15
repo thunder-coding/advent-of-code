@@ -11,6 +11,10 @@ add_library(AOCSolutionLib SHARED
   src/year2015/day02/part1.cc
   src/year2015/day02/part2.cc
   src/year2015/day02/parse.cc
+  src/year2015/day03/common.cc
+  src/year2015/day03/parse.cc
+  src/year2015/day03/part1.cc
+  src/year2015/day03/part2.cc
 )
 
 add_executable(AOC
