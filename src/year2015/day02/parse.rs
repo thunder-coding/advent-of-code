@@ -5,13 +5,13 @@ pub fn parse(input: String) -> Result<Boxes, String> {
   let mut boxes = Boxes::new();
   let mut current_box: Box = [0, 0, 0];
   let mut side_index = 0;
-  for chr in input.chars() {
+  for chr in input.bytes() {
     match chr {
-      '0'..='9' => {
+      b'0'..=b'9' => {
         current_box[side_index] *= 10;
         current_box[side_index] += (chr as u32) - ('0' as u32);
       }
-      'x' => {
+      b'x' => {
         side_index += 1;
         if side_index == 3 {
           return Err(format!(
@@ -20,7 +20,7 @@ pub fn parse(input: String) -> Result<Boxes, String> {
           ));
         }
       }
-      '\n' => {
+      b'\n' => {
         if side_index == 2 {
           side_index = 0;
           current_box.sort();
