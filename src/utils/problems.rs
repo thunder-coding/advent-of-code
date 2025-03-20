@@ -34,5 +34,6 @@ pub fn get_problems_list() -> ProblemList {
   add_problems_for_day!(problems_list, 2015, 2);
   add_problems_for_day!(problems_list, 2015, 3);
   add_problems_for_day!(problems_list, 2015, 4);
+  add_problems_for_day!(problems_list, 2015, 5);
   return problems_list;
 }
