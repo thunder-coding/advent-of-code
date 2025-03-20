@@ -3,6 +3,7 @@ use std::io::Write;
 use std::process::exit;
 use std::{env::args, fs::File, io::Read};
 
+mod helpers;
 mod utils;
 use libc::{EXIT_FAILURE, EXIT_SUCCESS};
 use utils::get_problems::get_problems;
